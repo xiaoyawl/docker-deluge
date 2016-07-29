@@ -1,0 +1,16 @@
+version: '2'
+
+services:
+  deluge:
+    build:
+      context: http://git.dwhd.org/lookback/docker-deluge.git
+    restart: always
+    image: deluge:1.3.13
+    ports:
+    - "8112:8112"
+    - "58846:58846"
+    - "53160:53160"
+    - "53160/udp:53160/udp"
+    volumes:
+    - /data/deluge-data:/data
+    - /etc/localtime:/etc/localtime
